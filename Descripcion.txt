@@ -4,3 +4,6 @@ Presentaciones:
 
 - Juan David Cifuentes Florez
   Rol : Desarrollador
+  
+- Santiago Piñerez Arroyave
+  Rol : Administrador de bases de datos
