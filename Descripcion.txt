@@ -2,3 +2,5 @@ Descripcion Del Proyecto:
 
 Presentaciones:
 
+- Juan David Cifuentes Florez
+  Rol : Desarrollador
