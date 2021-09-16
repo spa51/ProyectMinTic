@@ -7,3 +7,6 @@ Presentaciones:
   
 - Santiago Piñerez Arroyave
   Rol : Administrador de bases de datos
+  
+  - Mariana Montoya
+  Rol: Scrum Master
