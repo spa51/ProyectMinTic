@@ -3,10 +3,13 @@ Descripcion Del Proyecto:
 Presentaciones:
 
 - Juan David Cifuentes Florez
-  Rol : Desarrollador
+  Rol: Desarrollador
   
 - Santiago Piñerez Arroyave
-  Rol : Administrador de bases de datos
+  Rol: Administrador de bases de datos
   
-  - Mariana Montoya
+- Mariana Montoya
   Rol: Scrum Master
+
+- Andres Felipe Rueda Cujavante
+  Rol: Product Owner
