@@ -1,7 +1,7 @@
 import React from 'react';
 import { CardGroup, Col, Row } from 'react-bootstrap';
 import ProductCard from '../components/ProductCard';
-import '../styles/card.css'
+
 
 const products=[{
     id:1,
