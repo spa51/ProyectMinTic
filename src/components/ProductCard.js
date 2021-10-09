@@ -2,8 +2,6 @@ import React  from 'react';
 import { Card,Button } from 'react-bootstrap';
 
 const ProductCard= (props) => {
-
-    console.log('las propiedades',props);
     return (
         <div>
            <Card 

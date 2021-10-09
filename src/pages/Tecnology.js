@@ -1,52 +1,28 @@
-import React from 'react';
-import { CardGroup, Col, Row } from 'react-bootstrap';
+import React, { useContext, useEffect, useState } from 'react';
+import { Col, Row } from 'react-bootstrap';
+import PaginationProducts from '../components/PaginationProducts';
 import ProductCard from '../components/ProductCard';
-
-
-const products=[{
-    id:1,
-    name:"Televisor Samsung",
-    url:"https://falabella.scene7.com/is/image/FalabellaCO/19339388_1?wid=800&hei=800&qlt=70",
-    description:"Televisor Samsung 58 Pulgadas Crystal UHD 4K Ultra HD Smart TV",
-    price:"$ 2.299.900 (Precio final)",
-
-},
-{
-    id:2,
-    name:"Nintendo Switch",
-    url:"https://falabella.scene7.com/is/image/FalabellaCO/4193205?wid=240&hei=240&qlt=70",
-    description:"Consola Nintendo Switch 1.1",
-    price:"$ 1.699.900 (Precio final)",
-
-},{
-    id:3,
-    name:"Televisor Samsung",
-    url:"https://falabella.scene7.com/is/image/FalabellaCO/19339388_1?wid=800&hei=800&qlt=70",
-    description:"Televisor Samsung 58 Pulgadas Crystal UHD 4K Ultra HD Smart TV",
-    price:"$ 2.299.900 (Precio final)",
-
-},
-{
-    id:4,
-    name:"Nintendo Switch",
-    url:"https://falabella.scene7.com/is/image/FalabellaCO/4193205?wid=240&hei=240&qlt=70",
-    description:"Consola Nintendo Switch 1.1",
-    price:"$ 1.699.900 (Precio final)",
-
-}]
+import {  GlobalContext } from '../components/ProductsProvider';
+import { products } from '../helpers/products';
 
 const Tecnology = () => {
+    const [state,updateContext]=useContext(GlobalContext);
+    const [portionProducts,setPortionProducts]=useState(products.slice(0,8));
+    useEffect(()=>{
+        setPortionProducts(products.slice(state.paginationTechnology*8-8,state.paginationTechnology*8))
+    },[state.paginationTechnology])
+    console.log(state.paginationTechnology*8-8,state.paginationTechnology*8)
     return (
         <div className="">
 
             <Row xs={1} md={4} className="g-4">
-            {products.map(item => (
+            {portionProducts.map(item => (
                 <Col>
                     <ProductCard key={item.id} item={item}/>
                 </Col>
             ))}
             </Row>
-           
+           <PaginationProducts productSize={products.length}/>
         </div>
     );
 };
