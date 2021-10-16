@@ -14,7 +14,7 @@ const Navigation = () => {
                     
                     <NavDropdown.Item as={Link} to="/tecnologia">Tecnología</NavDropdown.Item>
                     <NavDropdown.Item as={Link} to="/hogar">Hogar</NavDropdown.Item>
-                    <NavDropdown.Item as={Link} to="/salud">Salud y Belleza</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/saludybelleza">Salud y Belleza</NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="/deportes">Deportes</NavDropdown.Item>
                     </NavDropdown>

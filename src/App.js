@@ -9,7 +9,12 @@ import {
   Link
 } from "react-router-dom";
 import Tecnology from './pages/Tecnology';
+import House from './pages/House';
+import HealthAndBeauty from './pages/HealthAndBeauty';
+import Sports from './pages/Sports';
+import NotFoundPage from './pages/NotFoundPage'
 import { ContextProvider } from './components/ProductsProvider';
+
 
 function App() {
   return (
@@ -20,6 +25,11 @@ function App() {
             <Switch>
               <Route path="/" exact component={Home}/>
               <Route path="/tecnologia" component={Tecnology}/>
+              <Route path="/hogar" component={House}/>
+              <Route path="/saludybelleza" component={HealthAndBeauty}/>
+              <Route path="/deportes" component={Sports}/>
+
+              <Route exact path="*" component={NotFoundPage}/>     
             </Switch>
           </ContextProvider>
         </div>
