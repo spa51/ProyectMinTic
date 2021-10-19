@@ -1,0 +1,115 @@
+body{
+    background: #BFC9CA;
+}
+.auth_form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 45rem;
+    background-color: white;
+    margin: auto;
+    margin-top: 25vh;
+    border: 3px solid;
+    padding: 10px;
+}
+.auth__main{
+    align-items: center;
+    background-color: #282d32;    
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+}
+
+.auth__box-container{
+    background-color: white;
+    box-shadow: #424949;
+    border-radius: 2px;
+    padding: 20px;
+    width: 250px;
+}
+.auth__title{
+    margin-bottom: 20px;
+}
+.auth__input{
+    color:#424949;
+    border:0px;
+    border-bottom: 1px solid #CACFD2;
+    font-size: 16px;
+    margin-bottom: 10px;
+    height: 20px;
+    width: 100%;
+    transition: border-buttom .3 ease;
+    
+}
+
+.auth__input:focus{
+    border-bottom: 1px solid #282d32;
+    outline: none;
+}
+.auth__social-network{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+}
+
+.autj__alert-error{
+    background-color: red;
+    border-radius: 5px;
+    color:white;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    padding: 5px;
+
+}
+
+.google-btn {
+    cursor: pointer;
+    margin-top: 5px;
+    width: 50%;
+    height: 42px;
+    background-color: #4285f4;
+    border-radius: 2px;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
+
+    transition: box-shadow .3s ease;
+
+    
+}
+
+.google-icon-wrapper {
+    position: absolute;
+    margin-top: 1px;
+    margin-left: 1px;
+    width: 40px;
+    height: 40px;
+    border-radius: 2px;
+    background-color: #fff;
+}
+.google-icon {
+    position: absolute;
+    margin-top: 11px;
+    margin-left: 11px;
+    width: 18px;
+    height: 18px;
+}
+
+.btn-text {
+    float: right;
+    margin: 11px 40px 0 0;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+}
+
+.google-btn:hover {
+    box-shadow: 0 0 6px #4285f4;
+}
+.google-btn:active {
+    background: #1669F2;
+}

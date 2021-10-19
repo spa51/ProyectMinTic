@@ -1,7 +1,6 @@
 import Navigation from './components/Navigation';
 import Home from './pages/Home';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Footer from './components/Footer';
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,6 +13,7 @@ import HealthAndBeauty from './pages/HealthAndBeauty';
 import Sports from './pages/Sports';
 import NotFoundPage from './pages/NotFoundPage'
 import { ContextProvider } from './components/ProductsProvider';
+import Login from './pages/Login';
 
 
 function App() {
@@ -28,12 +28,11 @@ function App() {
               <Route path="/hogar" component={House}/>
               <Route path="/saludybelleza" component={HealthAndBeauty}/>
               <Route path="/deportes" component={Sports}/>
-
+              <Route path="/login" component={Login} />
               <Route exact path="*" component={NotFoundPage}/>     
             </Switch>
           </ContextProvider>
         </div>
-        <Footer/>
       </Router>
   );
 }
