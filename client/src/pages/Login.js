@@ -1,9 +1,11 @@
-import React from 'react';
-import { Form, Button} from 'react-bootstrap';
+import { createUserWithEmailAndPassword } from '@firebase/auth';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useForm } from '../hooks/useForm';
 import '../styles/auth.css'
 const Login = () => {
-
+    const [formValue,handleInputChange]=useForm();
+    // createUserWithEmailAndPassword(auth,email,password)
     return (
         <div className="auth_form">
             <h3 className="auth__title">Login</h3>
@@ -13,7 +15,8 @@ const Login = () => {
                     type="text"
                     placeholder="Email"
                     name="email"
-                   
+                    onChange={handleInputChange}
+                    value={formValue.email}
                                   
                 />
                 <input 
@@ -44,7 +47,7 @@ const Login = () => {
                     </p>
                 </div>
                 <Link 
-                    to="/auth/register"
+                    to="/user/register"
                     className="link"
                     >
                         Create new account

@@ -57,7 +57,7 @@ body{
     width: 100%;
 }
 
-.autj__alert-error{
+.auth__alert-error{
     background-color: red;
     border-radius: 5px;
     color:white;
@@ -112,4 +112,10 @@ body{
 }
 .google-btn:active {
     background: #1669F2;
+}
+
+.link{
+    text-align: center;
+    padding: 0;
+    margin: 0;
 }

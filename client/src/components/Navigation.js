@@ -20,7 +20,7 @@ const Navigation = () => {
                     </NavDropdown>
                 </Nav>
                     <Nav>
-                    <Nav.Link as={Link} to="/login">Iniciar Sesión</Nav.Link>
+                    <Nav.Link as={Link} to="/user/login">Iniciar Sesión</Nav.Link>
                         <Nav.Link eventKey={2} href="#memes">
                             Cerrar Sesión
                         </Nav.Link>
