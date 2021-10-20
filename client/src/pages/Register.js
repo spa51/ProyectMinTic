@@ -22,6 +22,8 @@ const objeto={
         measurementId: "G-MZF7ZEGYSK"
 
 }
+
+console.log(process.env.REACT_APP_API_KEY)
 const Register = () => {
     const app = initializeApp(objeto)
     const [registerStatus,setRegisterStatus]=useState(inistialState);
@@ -46,7 +48,7 @@ const Register = () => {
             });
          });
     }
-    console.log(process.env.REACT_APP_API_KEY)
+    
     return (
         <div className="auth_form">
         <h3 className="auth__title">Register</h3>
