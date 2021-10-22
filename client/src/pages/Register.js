@@ -2,51 +2,72 @@ import React, { useState } from 'react';
 import { getAuth,createUserWithEmailAndPassword } from '@firebase/auth';
 import { Link } from 'react-router-dom';
 import { useForm } from '../hooks/useForm';
-import '../styles/auth.css'
+import Spinner from 'react-bootstrap/Spinner'
 import { initializeApp } from '@firebase/app';
 import { firebaseConfig } from '../helpers/firebase.config';
+import Swal from 'sweetalert2'
+import '../styles/spinner.css'
+import '../styles/auth.css'
 const inistialState={
     error:null,
     loading:false,
 }
 
-const objeto={
-
-        apiKey: "AIzaSyDVcssK1V7n4jndI1Ro1wTfUgEJUsbrQVg",
-        authDomain: "misiontic-bb459.firebaseapp.com",
-        databaseURL: "https://misiontic-bb459-default-rtdb.firebaseio.com",
-        projectId: "misiontic-bb459",
-        storageBucket: "misiontic-bb459.appspot.com",
-        messagingSenderId: "809204228953",
-        appId: "1:809204228953:web:93483ddc0bdb61031ba248",
-        measurementId: "G-MZF7ZEGYSK"
-
-}
-
-console.log(process.env.REACT_APP_API_KEY)
 const Register = () => {
-    const app = initializeApp(objeto)
+
     const [registerStatus,setRegisterStatus]=useState(inistialState);
-    const [formValue,handleInputChange]=useForm();
+    const [formValue,handleInputChange,reset]=useForm();
+   
+
     const registerUser= async (e)=>{
         e.preventDefault();
         if(formValue.password!==formValue.password2||formValue.email===""||formValue.name==="") return
-        const auth=getAuth(app);
+        const auth=getAuth();
+        setRegisterStatus({
+            ...registerStatus,
+            loading:true
+        })
         await createUserWithEmailAndPassword(auth,formValue.email,formValue.password)
         .then(userCredential=>{
-            const user = userCredential.user;
             setRegisterStatus({
                 ...registerStatus,
+                loading:false,
                 error:null
             });
+            Swal.fire({
+                position: 'center',
+                icon: 'Éxito',
+                title: 'Se ha registrado correctamente',
+                showConfirmButton: false,
+                timer: 1500
+              });
+            reset();
         })
         .catch(error => {
 
             setRegisterStatus({
                 ...registerStatus,
                 error:error.message,
+                loading:false,
             });
+
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Algo salió mal!',
+                footer: '<a href="">Why do I have this issue?</a>'
+              })
          });
+    }
+
+    if (registerStatus.loading){
+        return(
+            <div className="spinner_container">
+                <Spinner animation="border" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                </Spinner>
+            </div>
+        )
     }
     
     return (

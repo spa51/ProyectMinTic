@@ -1,37 +1,54 @@
-import Navigation from './components/Navigation';
-import Home from './pages/Home';
-import { initializeApp } from 'firebase/app';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
+  Switch,Redirect
 } from "react-router-dom";
-import Tecnology from './pages/Tecnology';
-import House from './pages/House';
-import HealthAndBeauty from './pages/HealthAndBeauty';
-import Sports from './pages/Sports';
-import NotFoundPage from './pages/NotFoundPage'
-import { ContextProvider } from './components/ProductsProvider';
-import Login from './pages/Login';
-import Register from './pages/Register';
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { ContextProvider, GlobalContext } from './components/ProductsProvider';
+import AppRouter from './components/AppRouter';
+import AuthRouter from './components/AuthRouter';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { useState } from 'react';
+import { initializeApp } from "@firebase/app";
+import PrivateRouter from './components/PrivateRouter';
+import PublicRouter from './components/PublicRouter';
+import { useEffect } from "react";
+import { firebaseConfig } from "./helpers/firebase.config";
 
+initializeApp(firebaseConfig);
 function App() {
+  const [isLoggedIn,setIsLoggedIn]=useState(false)
+  
+  useEffect(()=>{
+    
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        
+        const uid = user.uid;
+        setIsLoggedIn(true)
+
+      } else {
+        setIsLoggedIn(false)
+      }
+    });
+  },[])
+  
   return (
       <Router>
-        <Navigation/>
         <div>
           <ContextProvider>
             <Switch>
-              <Route path="/" exact component={Home}/>
-              <Route path="/tecnologia" component={Tecnology}/>
-              <Route path="/hogar" component={House}/>
-              <Route path="/saludybelleza" component={HealthAndBeauty}/>
-              <Route path="/deportes" component={Sports}/>
-              <Route path="/user/login" component={Login} />
-              <Route path="/user/register" component={Register} />
-              <Route exact path="*" component={NotFoundPage}/>     
+              <PublicRouter
+                path="/user"
+                isAuthenticated={isLoggedIn}
+                component={AuthRouter}
+              />   
+              <PrivateRouter  
+                path="/store" 
+                isAuthenticated={isLoggedIn}
+                component={AppRouter}
+              />
+              <Redirect to="/user/login"/>
             </Switch>
           </ContextProvider>
         </div>
