@@ -7,6 +7,10 @@ import House from '../pages/House';
 import Sports from '../pages/Sports';
 import Tecnology from '../pages/Tecnology';
 import Navigation from './Navigation';
+import AdminVentas from '../pages/Administrador/Vendedor/AdminVentas';
+import AdminProductos from '../pages/Administrador/AdminProductos';
+import AdminUsuarios from '../pages/Administrador/AdminUsuarios';
+
 const AppRouter = () => {
     console.log("Me ejecute fui yo")
     return (
@@ -18,6 +22,9 @@ const AppRouter = () => {
                 <Route path="/store/hogar" exact component={House}/>
                 <Route path="/store/saludybelleza" exact component={HealthAndBeauty}/>
                 <Route path="/store/deportes" exact component={Sports}/>
+                <Route path="/store/admin/adminventas" exact component={AdminVentas}/>
+                <Route path="/store/admin/adminproductos" exact component={AdminProductos}/>
+                <Route path="/store/admin/adminusuarios" exact component={AdminUsuarios}/>
                 <Redirect to="/store"/>
                 {/* <Redirect to={NotFoundPage}/>  */}
             </Switch>

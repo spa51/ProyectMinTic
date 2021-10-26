@@ -21,13 +21,18 @@ const Navigation = () => {
                 <Nav className="me-auto">
                     <Nav.Link as={Link} to="/store">Inicio</Nav.Link>
                     <NavDropdown title="Categorias" id="collasible-nav-dropdown">
-                    
-                    <NavDropdown.Item as={Link} to="/store/tecnologia">Tecnología</NavDropdown.Item>
-                    <NavDropdown.Item as={Link} to="/store/hogar">Hogar</NavDropdown.Item>
-                    <NavDropdown.Item as={Link} to="/store/saludybelleza">Salud y Belleza</NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="/store/deportes">Deportes</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to="/store/tecnologia">Tecnología</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to="/store/hogar">Hogar</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to="/store/saludybelleza">Salud y Belleza</NavDropdown.Item>
+                        <NavDropdown.Divider />
+                        <NavDropdown.Item href="/store/deportes">Deportes</NavDropdown.Item>
                     </NavDropdown>
+                    <NavDropdown title="Administrador" id="collasible-nav-dropdown">
+                        <NavDropdown.Item as={Link} to="/store/admin/adminventas">Ventas</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to="/store/admin/adminproductos">Productos</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to="/store/admin/adminusuarios">Usuarios</NavDropdown.Item>
+                    </NavDropdown>
+
                 </Nav>
                     <Nav>
                     <Nav.Link as={Link} to="/user/login">Iniciar Sesión</Nav.Link>
