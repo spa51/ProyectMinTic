@@ -13,6 +13,8 @@ import PrivateRouter from './components/PrivateRouter';
 import PublicRouter from './components/PublicRouter';
 import { useEffect } from "react";
 import { firebaseConfig } from "./helpers/firebase.config";
+import {ToastContainer} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 initializeApp(firebaseConfig);
 function App() {
@@ -51,6 +53,7 @@ function App() {
               <Redirect to="/user/login"/>
             </Switch>
           </ContextProvider>
+          <ToastContainer/>
         </div>
       </Router>
   );
