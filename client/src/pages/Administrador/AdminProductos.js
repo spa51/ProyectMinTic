@@ -58,8 +58,8 @@ const AdminProductos = () => {
                 theme:'dark',
                 autoClose:3000
             });   
-            currentId=[];
-            // setCurrentId([]); 
+            
+            setCurrentId([]); 
             console.log(currentId);
         }
     }
